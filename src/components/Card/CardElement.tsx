@@ -9,27 +9,44 @@ import Typography from '@mui/material/Typography';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import BalanceOutlinedIcon from '@mui/icons-material/BalanceOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { NewProducts } from '../../consts/products'
+import { NewProducts } from '../../consts/products';
+import { addToCart, removeFromCart, selectCart } from '../../store/slices/addToCart';
+import { AddToFavorite } from '../favorite/AddToFavorite';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { findAllByAltText } from '@testing-library/react';
 
 interface Props {
     cardItem: NewProducts,
-    clickHandler: (e: any) => void
-}
-export const CardElement = ({ cardItem, clickHandler }: Props) => {
 
+}
+
+export const CardElement = ({ cardItem }: Props) => {
+    const navigate = useNavigate();
+    const clickHandler = (e: any) => {
+        navigate(`/blog/${e.currentTarget.id}`);
+    }
+
+    const dispatch = useDispatch();
+    const cartitems = useSelector(selectCart)
+
+    const addToCartHandler = () => {
+        if (!check) {
+            dispatch(addToCart(cardItem))
+        } else {
+            dispatch(removeFromCart(cardItem))
+        }
+
+    }
+    const products = useSelector(selectCart)
+    const check = products.find((item) => item.id === cardItem.id)
     return (
         <Card sx={{ width: '317px', margin: '5px 20px' }}>
             <CardHeader
                 action={
-                    <>
-                        <IconButton aria-label="settings">
-                            <BalanceOutlinedIcon />
-                        </IconButton><IconButton aria-label="settings">
-                            <FavoriteBorderOutlinedIcon />
-                        </IconButton></>
+
+                    <AddToFavorite productId={'5'} />
                 }
-            // title="Shrimp and Chorizo Paella"
-            // subheader="September 14, 2016"
             />
             <CardMedia
                 component="img"
@@ -46,8 +63,8 @@ export const CardElement = ({ cardItem, clickHandler }: Props) => {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <ShoppingCartOutlinedIcon />
+                <IconButton aria-label="add to favorites" onClick={addToCartHandler}>
+                    <ShoppingCartOutlinedIcon sx={{ color: check ? 'red' : 'inheret' }} />
                 </IconButton>
             </CardActions>
         </Card>

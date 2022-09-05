@@ -8,6 +8,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { CartModal } from '../../cart-modal/CartModal';
+import { CartIcon } from './cart-icon-badge/CartIcon';
 export const NavbarDown = () => {
     const navigate = useNavigate()
     const [visibility, setVisibility] = useState(false)
@@ -26,7 +27,7 @@ export const NavbarDown = () => {
                     </div>
                     <div><BalanceOutlinedIcon /></div>
                     <div><FavoriteBorderOutlinedIcon /></div>
-                    <div onClick={() => setVisibility(prev => !prev)}><ShoppingCartOutlinedIcon /></div>
+                    <div onClick={() => setVisibility(prev => !prev)}><CartIcon /></div>
                 </div>
                 {visibility && <CartModal setVisibility={setVisibility} />}
             </div>

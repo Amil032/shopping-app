@@ -4,13 +4,22 @@ import Slider from 'react-slick';
 import classes from './Image.module.css';
 import { products } from '../../../consts/product';
 import { useState } from 'react';
-export const Image = () => {
+import { NewProducts } from '../../../consts/products'
+
+interface Props {
+  product: NewProducts[];
+  handleOpen: (data: boolean) => void;
+}
+
+
+export const Image = ({ product, handleOpen }: Props) => {
+  console.log(product[0].source)
   const settings = {
     customPaging: function (i: number) {
 
       return (
         <div >
-          <img src={`${products[i].source}`} style={{ width: '50px', objectFit: 'contain' }} />
+          <img src={`../${product[i].source}`} style={{ width: '50px' }} />
         </div>
       );
     },
@@ -26,9 +35,9 @@ export const Image = () => {
   return (
     <div  >
       <Slider {...settings}>
-        {products.map((item) => (
-          <div >
-            <img src={item.source} style={{ margin: '0px auto', width: '80%' }} />
+        {product.map((item) => (
+          <div style={{ backgroundColor: 'blue' }} >
+            <img src={`../${item.source}`} style={{ margin: '0px auto', maxWidth: '70%' }} onClick={() => handleOpen(true)} />
           </div>
         ))}
 

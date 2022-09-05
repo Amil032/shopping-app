@@ -13,9 +13,6 @@ createServer({
           { id: 3, name: 'Dunkirk', year: 2017 },
         ],
       }
-    }),
-      this.get('/bestselling', () => {
-        return newProducts
-      })
+    })
   },
 })

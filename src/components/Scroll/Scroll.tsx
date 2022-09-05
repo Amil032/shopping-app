@@ -5,11 +5,12 @@ import { LeftArrow } from './Arrows';
 import { RightArrow } from './Arrows';
 import classes from './Scroll.module.css';
 import { FunctionComponent } from 'react';
+import { CardElement } from '../Card/CardElement';
 
 interface Props {
-    cardElement: (data: NewProducts) => JSX.Element,
+    scrollProducts: NewProducts[],
 }
-export const Scroll = ({ cardElement }: Props) => {
+export const Scroll = ({ scrollProducts }: Props) => {
 
 
     return (
@@ -25,7 +26,7 @@ export const Scroll = ({ cardElement }: Props) => {
             scrollContainerClassName={classes.scrollContainer}
         >
             {newProducts.map((item: NewProducts, index) => (
-                cardElement(item)
+                <CardElement cardItem={item} />
             ))}
         </ScrollMenu>
     );

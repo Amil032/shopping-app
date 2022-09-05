@@ -6,12 +6,12 @@ export const Slider = (props: any) => {
         {
             name: 'Random Name #1',
             description: 'Probably the most random thing you have ever seen!',
-            source: 'assests/slider1.png'
+            source: '../../assests/slider1.png'
         },
         {
             name: 'Random Name #2',
             description: 'Hello World!',
-            source: 'assests/slider2.png'
+            source: '../../assests/slider2.png'
         }
     ]
 

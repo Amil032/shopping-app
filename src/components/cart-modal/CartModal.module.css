@@ -9,4 +9,6 @@
     padding: 0px;
     border-bottom-left-radius: 25px !important;
     border-bottom-right-radius: 25px !important;
+    max-height: 80vh;
+    
 }

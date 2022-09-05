@@ -16,11 +16,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/actions' element={<Actions />} />
-          <Route path='blog/' element={<Product />} />
+          <Route path='blog/:id' element={<Product />} />
           <Route path='/bonus' element={<BonusPlus />} />
           <Route path='/credit' element={<Credit />} />
-          {/* <Route path='/subcategories' element={<AllCategories />}/> */}
-          {/* <Route path='/subcategories/:id' element={<Product />} /> */}
           <Route path='/cart' element={<Cart />} />
         </Routes>
       </Header>
