@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { SetStateAction, useState, Dispatch } from 'react';
 import classes from './NavbarDown.module.css'
 import Search from './Search';
 import WidgetsIcon from '@mui/icons-material/Widgets';
@@ -9,9 +9,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useNavigate } from 'react-router-dom';
 import { CartModal } from '../../cart-modal/CartModal';
 import { CartIcon } from './cart-icon-badge/CartIcon';
-export const NavbarDown = () => {
+interface Props {
+    visibility: boolean;
+    setVisibility: Dispatch<SetStateAction<boolean>>
+}
+export const NavbarDown = ({ visibility, setVisibility }: Props) => {
     const navigate = useNavigate()
-    const [visibility, setVisibility] = useState(false)
+
     return (
         <div className={classes.container}>
             <div className={classes.innerContainer}>
@@ -27,7 +31,7 @@ export const NavbarDown = () => {
                     </div>
                     <div><BalanceOutlinedIcon /></div>
                     <div><FavoriteBorderOutlinedIcon /></div>
-                    <div onClick={() => setVisibility(prev => !prev)}><CartIcon /></div>
+                    <CartIcon setVisibility={setVisibility} />
                 </div>
                 {visibility && <CartModal setVisibility={setVisibility} />}
             </div>

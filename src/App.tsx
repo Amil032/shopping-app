@@ -8,7 +8,9 @@ import { Credit } from './components/Pages/Credit/Credit';
 import { Footer } from './components/Footer/Footer';
 import { Product } from './components/Pages/Product/Product';
 import { Cart } from './components/Pages/Cart/Cart';
+
 function App() {
+
   return (
     <>
       <Header>

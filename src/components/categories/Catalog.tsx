@@ -27,7 +27,9 @@ export const Catalog = ({ show, setShow, setCategory }: Props) => {
             height: '432px', backgroundColor: 'white',
             minWidth: '314px',
             padding: '0'
-        }}>
+        }}
+            className={classes.category}
+        >
             <div >
                 {
                     catalogItems.map((item) => (

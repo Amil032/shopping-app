@@ -14,15 +14,27 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
         padding: '0 2px',
     },
 }));
-
-export const CartIcon = () => {
+interface Props {
+    setVisibility: React.Dispatch<React.SetStateAction<boolean>> | null
+}
+export const CartIcon = ({ setVisibility }: Props) => {
     const cartItems = useSelector(selectCart);
-
+    const visibilityHandler = () => {
+        if (setVisibility === null) {
+            return
+        } else {
+            setVisibility(prev => !prev)
+        }
+    }
     return (
+        <IconButton size="large"
+            color="inherit"
+            onClick={visibilityHandler}>
+            <Badge badgeContent={cartItems.length} color="error">
+                <ShoppingCartOutlinedIcon />
+            </Badge>
+        </IconButton>
 
-        <StyledBadge badgeContent={cartItems.length} color="error">
-            <ShoppingCartOutlinedIcon />
-        </StyledBadge>
 
     );
 }

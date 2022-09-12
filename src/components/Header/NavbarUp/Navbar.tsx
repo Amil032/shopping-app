@@ -7,7 +7,6 @@ import classes from './Index.module.css';
 import { Language } from './Language';
 export const Navbar = () => {
     const navigate = useNavigate();
-
     const { routes } = navigationConsts
     return (
         <div className={classes.upperNavbar}>

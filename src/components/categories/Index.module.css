@@ -3,3 +3,10 @@
     min-width: 314px;
     padding: 0;
 }
+
+
+@media screen and (max-width: 1500px) {
+    .category {
+      display: none;
+    }
+  }

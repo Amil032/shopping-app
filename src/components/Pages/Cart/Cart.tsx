@@ -20,12 +20,12 @@ export const Cart = () => {
             <div style={{ display: 'flex', marginTop: '10px' }}>
                 {/* <div style={{ flexGrow: '1' }}></div> */}
                 <Paper sx={{ flex: '1' }} >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 30px', alignItems: 'center' }}>
+                    <div className={classes.footer}>
                         <Button variant='contained' color="error" >Sifarisi resmilesdir</Button>
                         <Button variant='outlined'>1 kilile al</Button>
                         <Button variant='outlined'>kreditle almaq</Button>
-                        <h2>Cemi</h2>
-                        <h3>{total}</h3>
+                        <h2>Cemi {total}</h2>
+
                     </div>
 
                 </Paper>
