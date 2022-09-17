@@ -24,6 +24,10 @@ export const subCategories :Categories= {
         { name: 'dish-whasher', description: 'Qab yuyan' },
         { name: 'washing-machine', description: 'paltar yuyan' },
         { name: 'Vacuum cleaner', description: 'Qab yuyan' },
+        { name: 'refrigerator', description: 'Soyuducu' },
+        { name: 'dish-whasher', description: 'Qab yuyan' },
+        { name: 'washing-machine', description: 'paltar yuyan' },
+        { name: 'Vacuum cleaner', description: 'Qab yuyan' },
     ],
     little: [
         { name: 'refrigerator', description: 'tozsoran' },
@@ -58,9 +62,9 @@ export const subCategories :Categories= {
 
 
 }
-interface Cat{
+export interface Cat{
     name: string;
     description:string
 }
 
-export type Categories=Record<string,Cat[]>
+export type Categories = Record<string, Cat[]>

@@ -14,16 +14,19 @@ export const Details = ({ product }: { product: NewProducts }) => {
         dispatch(addToCart(product))
     }
     return (
-        <div style={{ flex: '1' }}>
+        <div style={{ flex: '1' }} className={classes.main_container}>
             <div className={classes.productName}>{product.name}</div>
             <ProductRating />
             <div>
                 <h1>{product.price} m</h1>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', width: '600px' }}>
-                <Button variant='contained' color='error' sx={{ width: '35%', fontSize: '14px' }} onClick={addTocartHandler}>Səbətə əlavə et</Button>
-                <Button variant='outlined' sx={{ width: '35%' }}> 1 Kliklə al</Button>
-                <AddToFavorite productId={'4'} />
+            <div className={classes.action_buttons}>
+                <Button variant='contained' color='error' onClick={addTocartHandler} className={classes.addtocart}>Səbətə əlavə et</Button>
+                <div className={classes.buttons}>
+                    <Button variant='outlined' sx={{ width: '50%' }}> Indi al</Button>
+                    <AddToFavorite productId={'4'} />
+                </div>
+
             </div>
             <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column' }} >
                 <div style={{ display: 'flex', alignItems: 'center' }}>

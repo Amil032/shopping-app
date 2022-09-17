@@ -3,14 +3,18 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
+
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ArchiveIcon from '@mui/icons-material/Archive';
+
 import Paper from '@mui/material/Paper';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import { useNavigate } from 'react-router-dom';
 import { CartIcon } from '../../Header/NavbarDown/cart-icon-badge/CartIcon';
+import { DrawerNavigation } from '../DrawwerNavigation';
+import { catalogItems } from '../../../consts/catalog';
+import { RoutesType } from '../../../consts/navigation-consts';
+import { CategoriesDrawer } from '../Categories/CategoriesDrawer';
 
 function refreshMessages(): MessageExample[] {
     const getRandomInt = (max: number) => Math.floor(Math.random() * Math.floor(max));
@@ -24,39 +28,70 @@ interface Props {
     setVisibility: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const FixedBottomNavigation = ({ setVisibility }: Props) => {
-    const [value, setValue] = React.useState(0);
-    const ref = React.useRef<HTMLDivElement>(null);
-    const [messages, setMessages] = React.useState(() => refreshMessages());
+    const [value, setValue] = React.useState(5);
+    const [items, setItems] = React.useState<RoutesType>([]);
+    const [beforestate, setBeforeState] = React.useState<number>(5)
+    const [show, setShow] = React.useState(false)
 
-    React.useEffect(() => {
-        (ref.current as HTMLDivElement).ownerDocument.body.scrollTop = 0;
-        setMessages(refreshMessages());
-    }, [value, setMessages]);
     const navigate = useNavigate();
     React.useEffect(() => {
         switch (value) {
             case 0:
-                navigate('/')
-        }
-    }, [value])
+                navigate('/');
+                setVisibility(false)
+                break;
 
+            case 1:
+                setVisibility(prev => !prev);
+                break;
+            case 2:
+                setVisibility(false);
+                break;
+            case 3:
+                setVisibility(false);
+                break;
+
+
+        }
+    }, [value]);
+
+    React.useEffect(() => {
+        catalogItems.forEach((item) => {
+            items.push([item.name, item.description])
+        })
+
+    }, [])
+    React.useEffect(() => {
+        if (value === 3) {
+            setShow(true)
+        }
+        if (show) {
+            setValue(beforestate)
+        }
+        // show && setValue(beforestate)
+    }, [value, show])
+    console.log(show, value, items)
     return (
-        <Box sx={{ pb: 7, zIndex: '10' }} ref={ref}>
+        <Box sx={{ zIndex: '10' }}>
             <CssBaseline />
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
                     value={value}
                     onChange={(event, newValue) => {
-                        setValue(newValue);
+                        setValue(prev => {
+                            setBeforeState(prev)
+                            return newValue
+                        });
                     }}
                 >
                     <BottomNavigationAction label="home" icon={<HomeOutlinedIcon />} />
-                    <BottomNavigationAction label="Recents" icon={<CartIcon setVisibility={setVisibility} />} />
+                    <BottomNavigationAction label="Recents" icon={<CartIcon />} />
                     <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
                     <BottomNavigationAction label="categories" icon={<AppsOutlinedIcon />} />
                 </BottomNavigation>
             </Paper>
+            <CategoriesDrawer show={show} setShow={setShow} />
         </Box>
     );
 }

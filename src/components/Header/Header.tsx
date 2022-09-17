@@ -13,7 +13,7 @@ export const Header = ({ children }: { children: JSX.Element }) => {
     return (
         <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
             {width > 900 ? <><Navbar /> <NavbarDown visibility={visibility} setVisibility={setVisibility} /></> : <>
-                <NavBar visibility={visibility} setVisibility={setVisibility} /><FixedBottomNavigation setVisibility={setVisibility} /></>
+                <FixedBottomNavigation setVisibility={setVisibility} /><NavBar visibility={visibility} setVisibility={setVisibility} /></>
             }
             {children}
         </div>

@@ -31,9 +31,10 @@ export const NavbarDown = ({ visibility, setVisibility }: Props) => {
                     </div>
                     <div><BalanceOutlinedIcon /></div>
                     <div><FavoriteBorderOutlinedIcon /></div>
-                    <CartIcon setVisibility={setVisibility} />
+                    <div onClick={() => setVisibility(true)} style={{ zIndex: '11' }}><CartIcon /></div>
+
                 </div>
-                {visibility && <CartModal setVisibility={setVisibility} />}
+                {visibility && <CartModal setVisibility={setVisibility} visibility={visibility} />}
             </div>
 
         </div>

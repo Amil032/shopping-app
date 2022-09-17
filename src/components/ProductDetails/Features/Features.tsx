@@ -52,7 +52,7 @@ export function Features() {
         <Paper>
             <Typography variant="h3" mb={5}>Xususiyyetler</Typography>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <Table sx={{ minWidth: { md: '700' }, width1: '100%' }} aria-label="customized table">
                     <TableBody>
                         {rows.map((row) => (
                             <StyledTableRow key={row.name}>

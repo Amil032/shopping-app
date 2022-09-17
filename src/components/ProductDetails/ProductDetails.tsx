@@ -15,8 +15,8 @@ export const ProductDetails = () => {
     const product = newProducts.filter((item) => item.id === id)
     return (
         <div style={{ display: 'flex', marginTop: '20px', flexDirection: 'column' }}>
-            <Paper style={{ display: 'flex', marginBottom: '40px' }} >
-                <div style={{ height: '500px', width: '40%', padding: '10px' }} >
+            <Paper style={{ display: 'flex', marginBottom: '40px' }} className={classes.details}>
+                <div className={classes.image} >
                     <Image product={product} handleOpen={handleOpen} />
                 </div>
                 <Details product={product[0]} />

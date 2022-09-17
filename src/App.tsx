@@ -8,6 +8,8 @@ import { Credit } from './components/Pages/Credit/Credit';
 import { Footer } from './components/Footer/Footer';
 import { Product } from './components/Pages/Product/Product';
 import { Cart } from './components/Pages/Cart/Cart';
+import { Catalog } from './components/categories/Catalog';
+import { Catalogue } from './components/Pages/Catalog/Catalogue';
 
 function App() {
 
@@ -17,11 +19,12 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/actions' element={<Actions />} />
+          <Route path='/action' element={<Actions />} />
           <Route path='blog/:id' element={<Product />} />
           <Route path='/bonus' element={<BonusPlus />} />
           <Route path='/credit' element={<Credit />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/catalog:catalogID' element={<Catalogue />} />
         </Routes>
       </Header>
       <Footer />

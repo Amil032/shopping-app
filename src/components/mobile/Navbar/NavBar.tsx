@@ -1,5 +1,4 @@
 
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,7 +9,7 @@ import Badge from '@mui/material/Badge';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
+
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { DrawerNavigation } from '../DrawwerNavigation';
 import { Dispatch, SetStateAction, useState } from 'react';
@@ -18,7 +17,7 @@ import { CartIcon } from '../../Header/NavbarDown/cart-icon-badge/CartIcon';
 import { SearchOutlined } from '@mui/icons-material';
 import { SearchModal } from '../search/SearchModal';
 import { routes } from '../../../consts/navigation-consts';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CartModal } from '../../cart-modal/CartModal';
 interface Props {
     visibility: boolean;
@@ -58,18 +57,25 @@ export const NavBar = ({ visibility, setVisibility }: Props) => {
                         </Typography>
 
                         <Box sx={{ flexGrow: 1 }} />
-                        <Box sx={{ display: { md: 'flex' } }}>
+                        <Box sx={{ overflow: 'hidden', justifyContent: 'center', alignitems: 'center' }}>
                             <IconButton
                                 size="large"
                                 color="inherit"
                                 onClick={searchVisibilityHandler}
+
 
                             >
                                 {/* <AccountCircle /> */}
                                 <SearchOutlined />
                             </IconButton>
 
-                            <CartIcon setVisibility={setVisibility} />
+                            <IconButton
+                                size="large"
+                                color="inherit"
+                                onClick={() => setVisibility(prev => !prev)}
+                            >
+                                <CartIcon />
+                            </IconButton>
 
 
                             <IconButton
@@ -89,7 +95,7 @@ export const NavBar = ({ visibility, setVisibility }: Props) => {
             </Box>
             <DrawerNavigation show={show} setShow={setShow} items={routes} />
             {searchVisibility && <SearchModal searchVisibilityHandler={searchVisibilityHandler} />}
-            {visibility && <CartModal setVisibility={setVisibility} />}
+            {visibility && <CartModal setVisibility={setVisibility} visibility={visibility} />}
         </Box >
 
     );

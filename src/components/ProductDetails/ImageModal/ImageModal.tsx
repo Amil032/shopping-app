@@ -3,9 +3,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { Slider } from '../../Slider/Slider';
-import { margin } from '@mui/system';
 import { SimpleSlider } from '../slider/SimpleSlider';
-
+import classes from './ImageModal.module.css'
+import useWindowDimensions from '../../hooks/getScreenSize';
 const style = {
     display: 'flex',
     flexDirection: 'column',
@@ -32,16 +32,17 @@ interface Props {
 }
 export const ImageModal = ({ open, handleClose }: Props) => {
 
-
+    const { width } = useWindowDimensions();
     return (
         <div>
             <Modal
-                open={open}
+                open={width > 900 ? open : false}
                 onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
+                className={classes.container}
             >
-                <Box sx={style}>
+                <Box sx={style} >
                     <SimpleSlider />
                     <div><h3>qiymet</h3>
                         <Button variant="contained" color="error">elave et</Button>
