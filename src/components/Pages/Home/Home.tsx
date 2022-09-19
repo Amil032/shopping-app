@@ -18,6 +18,8 @@ export const Home: React.FunctionComponent = () => {
     const clickHander = (e: any) => {
         navigate(`/blog/${e.currentTarget.id}`);
     }
+    const a = useState(false);
+    console.log(a)
     return (
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} className={classes.container}>
             <div className={classes.catalogueSLiderWrapper}>

@@ -24,7 +24,8 @@ function App() {
           <Route path='/bonus' element={<BonusPlus />} />
           <Route path='/credit' element={<Credit />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/catalog:catalogID' element={<Catalogue />} />
+          <Route path='/catalog/:catalogID/:sds' element={<Catalogue />} />
+
         </Routes>
       </Header>
       <Footer />
