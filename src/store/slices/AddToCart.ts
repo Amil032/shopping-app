@@ -20,7 +20,7 @@ const initialState:Cart = {
   cartItems: [],
   totalAmount:0
 }
-
+//amilgit
 export const cartActions = createSlice({
   name: 'addToCart',
   // `createSlice` will infer the state type from the `initialState` argument
