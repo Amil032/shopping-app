@@ -1,4 +1,4 @@
 function amil() {
-    console.log('amil')
+  console.log('amil')
 }
 amil()

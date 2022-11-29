@@ -1,0 +1,209 @@
+{
+  "products": [
+    {
+      "product_id":1,
+      "name": "Computer",
+      "description": "Kompyuter",
+      "category_id": 7,
+      "subcategory_id": 71
+    },
+    {
+      "product_id":2,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":3,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product2.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":4,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product3.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":5,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product3.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":6,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":7,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":7,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":8,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    }
+  ],
+  "categories": [
+    {
+      "description": "Boyuk Məişət texnikası",
+      "category_id": 1,
+      "subcatories": [
+        {
+          "description": "Soyuducu",
+          "subcategory_id": 11
+        },
+        {
+          "description": "Qabyuyan",
+          "subcategory_id": 12
+        }
+      ]
+    },
+    {
+      "description": "Xirda Meiset texnikasi",
+      "category_id": 2,
+      "subcatories": [
+        {
+          "description": "Ütü",
+          "subcategory_id": 21
+        },
+        {
+          "description": "Blender",
+          "subcategory_id": 22
+        }
+      ]
+    },
+    {
+      "description": "İqlim cihazlari",
+      "category_id": 3,
+      "subcatories": [
+        {
+          "description": "Kondisioner",
+          "subcategory_id": 31
+        },
+        {
+          "description": "Velntilyator",
+          "subcategory_id": 32
+        }
+      ]
+    },
+    {
+      "description": "Telefonlar",
+      "category_id": 4,
+      "subcatories": [
+        {
+          "description": "İphone",
+          "subcategory_id": 41
+        },
+        {
+          "description": "Samsung",
+          "subcategory_id": 42
+        }
+      ]
+    },
+    {
+      "description": "Ofis levazimatlari",
+      "category_id": 5,
+      "subcatories": [
+        {
+          "description": "Printer",
+          "subcategory_id": 51
+        },
+        {
+          "description": "Scanner",
+          "subcategory_id": 52
+        }
+      ]
+    },
+    {
+      "description": "Lampalar",
+      "category_id": 6,
+      "subcatories": [
+        {
+          "description": "Masaüstü",
+          "subcategory_id": 61
+        },
+        {
+          "description": "Ekonom",
+          "subcategory_id": 62
+        }
+      ]
+    },
+    {
+      "description": "Digər",
+      "category_id": 7,
+      "subcatories": [
+        {
+          "description": "Scooter",
+          "subcategory_id": 71
+        },
+        {
+          "description": "Dron",
+          "subcategory_id": 71
+        }
+      ]
+    }
+    
+  ]
+}
+

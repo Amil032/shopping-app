@@ -1,145 +1,134 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import CssBaseline from '@mui/material/CssBaseline'
+import BottomNavigation from '@mui/material/BottomNavigation'
+import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite'
 
-import Paper from '@mui/material/Paper';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
-import { useNavigate } from 'react-router-dom';
-import { CartIcon } from '../../Header/NavbarDown/cart-icon-badge/CartIcon';
-import { DrawerNavigation } from '../DrawwerNavigation';
-import { catalogItems } from '../../../consts/catalog';
-import { RoutesType } from '../../../consts/navigation-consts';
-import { CategoriesDrawer } from '../Categories/CategoriesDrawer';
+import Paper from '@mui/material/Paper'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined'
+import { useNavigate } from 'react-router-dom'
+import { CartIcon } from '../../Header/NavbarDown/cart-icon-badge/CartIcon'
+import { catalogItems } from '../../../consts/catalog'
+import { RoutesType } from '../../../consts/navigation-consts'
+import { CategoriesDrawer } from '../Categories/CategoriesDrawer'
 
-function refreshMessages(): MessageExample[] {
-    const getRandomInt = (max: number) => Math.floor(Math.random() * Math.floor(max));
-
-    return Array.from(new Array(50)).map(
-        () => messageExamples[getRandomInt(messageExamples.length)],
-    );
-}
 interface Props {
-    // visibility: boolean;
-    setVisibility: React.Dispatch<React.SetStateAction<boolean>>
+  // visibility: boolean;
+  setVisibility: React.Dispatch<React.SetStateAction<boolean>>
 }
 export const FixedBottomNavigation = ({ setVisibility }: Props) => {
-    const [value, setValue] = React.useState(5);
-    const [items, setItems] = React.useState<RoutesType>([]);
-    const [beforestate, setBeforeState] = React.useState<number>(5)
-    const [show, setShow] = React.useState(false)
+  const [value, setValue] = React.useState(5)
+  const [items, setItems] = React.useState<RoutesType>([])
+  const [beforestate, setBeforeState] = React.useState<number>(5)
+  const [show, setShow] = React.useState(false)
 
-    const navigate = useNavigate();
-    React.useEffect(() => {
-        switch (value) {
-            case 0:
-                navigate('/');
-                setVisibility(false)
-                break;
+  const navigate = useNavigate()
+  React.useEffect(() => {
+    switch (value) {
+      case 0:
+        navigate('/')
+        setVisibility(false)
+        break
 
-            case 1:
-                setVisibility(prev => !prev);
-                break;
-            case 2:
-                setVisibility(false);
-                break;
-            case 3:
-                setVisibility(false);
-                break;
+      case 1:
+        setVisibility((prev) => !prev)
+        break
+      case 2:
+        setVisibility(false)
+        break
+      case 3:
+        setVisibility(false)
+        break
+    }
+  }, [value])
 
-
-        }
-    }, [value]);
-
-    React.useEffect(() => {
-        catalogItems.forEach((item) => {
-            items.push([item.name, item.description])
-        })
-
-    }, [])
-    React.useEffect(() => {
-        if (value === 3) {
-            setShow(true)
-        }
-        if (show) {
-            setValue(beforestate)
-        }
-        // show && setValue(beforestate)
-    }, [value, show])
-    console.log(show, value, items)
-    return (
-        <Box sx={{ zIndex: '10' }}>
-            <CssBaseline />
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    showLabels
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(prev => {
-                            setBeforeState(prev)
-                            return newValue
-                        });
-                    }}
-                >
-                    <BottomNavigationAction label="home" icon={<HomeOutlinedIcon />} />
-                    <BottomNavigationAction label="Recents" icon={<CartIcon />} />
-                    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="categories" icon={<AppsOutlinedIcon />} />
-                </BottomNavigation>
-            </Paper>
-            <CategoriesDrawer show={show} setShow={setShow} />
-        </Box>
-    );
+  React.useEffect(() => {
+    catalogItems.forEach((item) => {
+      items.push([item.name, item.description])
+    })
+  }, [])
+  React.useEffect(() => {
+    if (value === 3) {
+      setShow(true)
+    }
+    if (show) {
+      setValue(beforestate)
+    }
+    // show && setValue(beforestate)
+  }, [value, show])
+  console.log(show, value, items)
+  return (
+    <Box sx={{ zIndex: '10' }}>
+      <CssBaseline />
+      <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+        <BottomNavigation
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue((prev) => {
+              setBeforeState(prev)
+              return newValue
+            })
+          }}
+        >
+          <BottomNavigationAction label='home' icon={<HomeOutlinedIcon />} />
+          <BottomNavigationAction label='Recents' icon={<CartIcon />} />
+          <BottomNavigationAction label='Favorites' icon={<FavoriteIcon />} />
+          <BottomNavigationAction label='categories' icon={<AppsOutlinedIcon />} />
+        </BottomNavigation>
+      </Paper>
+      <CategoriesDrawer show={show} setShow={setShow} />
+    </Box>
+  )
 }
 
 interface MessageExample {
-    primary: string;
-    secondary: string;
-    person: string;
+  primary: string
+  secondary: string
+  person: string
 }
 
 const messageExamples: readonly MessageExample[] = [
-    {
-        primary: 'Brunch this week?',
-        secondary: "I'll be in the neighbourhood this week. Let's grab a bite to eat",
-        person: '/static/images/avatar/5.jpg',
-    },
-    {
-        primary: 'Birthday Gift',
-        secondary: `Do you have a suggestion for a good present for John on his work
+  {
+    primary: 'Brunch this week?',
+    secondary: "I'll be in the neighbourhood this week. Let's grab a bite to eat",
+    person: '/static/images/avatar/5.jpg'
+  },
+  {
+    primary: 'Birthday Gift',
+    secondary: `Do you have a suggestion for a good present for John on his work
       anniversary. I am really confused & would love your thoughts on it.`,
-        person: '/static/images/avatar/1.jpg',
-    },
-    {
-        primary: 'Recipe to try',
-        secondary: 'I am try out this new BBQ recipe, I think this might be amazing',
-        person: '/static/images/avatar/2.jpg',
-    },
-    {
-        primary: 'Yes!',
-        secondary: 'I have the tickets to the ReactConf for this year.',
-        person: '/static/images/avatar/3.jpg',
-    },
-    {
-        primary: "Doctor's Appointment",
-        secondary: 'My appointment for the doctor was rescheduled for next Saturday.',
-        person: '/static/images/avatar/4.jpg',
-    },
-    {
-        primary: 'Discussion',
-        secondary: `Menus that are generated by the bottom app bar (such as a bottom
+    person: '/static/images/avatar/1.jpg'
+  },
+  {
+    primary: 'Recipe to try',
+    secondary: 'I am try out this new BBQ recipe, I think this might be amazing',
+    person: '/static/images/avatar/2.jpg'
+  },
+  {
+    primary: 'Yes!',
+    secondary: 'I have the tickets to the ReactConf for this year.',
+    person: '/static/images/avatar/3.jpg'
+  },
+  {
+    primary: "Doctor's Appointment",
+    secondary: 'My appointment for the doctor was rescheduled for next Saturday.',
+    person: '/static/images/avatar/4.jpg'
+  },
+  {
+    primary: 'Discussion',
+    secondary: `Menus that are generated by the bottom app bar (such as a bottom
       navigation drawer or overflow menu) open as bottom sheets at a higher elevation
       than the bar.`,
-        person: '/static/images/avatar/5.jpg',
-    },
-    {
-        primary: 'Summer BBQ',
-        secondary: `Who wants to have a cookout this weekend? I just got some furniture
+    person: '/static/images/avatar/5.jpg'
+  },
+  {
+    primary: 'Summer BBQ',
+    secondary: `Who wants to have a cookout this weekend? I just got some furniture
       for my backyard and would love to fire up the grill.`,
-        person: '/static/images/avatar/1.jpg',
-    },
-];
+    person: '/static/images/avatar/1.jpg'
+  }
+]

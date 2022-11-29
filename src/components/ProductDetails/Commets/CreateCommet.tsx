@@ -1,10 +1,5 @@
-import React from 'react';
+import React from 'react'
 
 export const CreateCommet = () => {
-    return (
-        <div>
-            create commet
-        </div>
-    );
-};
-
+  return <div>create commet</div>
+}
