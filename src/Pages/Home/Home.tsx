@@ -13,10 +13,7 @@ interface Sub {
 export const Home: React.FunctionComponent = () => {
   const [show, setShow] = useState(false)
   const [category, setCategory] = useState<Sub[]>([])
-  const navigate = useNavigate()
-  const clickHander = (e: any) => {
-    navigate(`/blog/${e.currentTarget.id}`)
-  }
+
   const a = useState(false)
   console.log(a)
   return (

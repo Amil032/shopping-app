@@ -3,6 +3,9 @@ import React, { FC, useState } from 'react'
 import { catalogItems, subCategories } from '../../consts/catalog'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import classes from './Index.module.css'
+import { useQuery } from 'react-query'
+import { getcateGories } from '../../api/services/categories.service'
+import { useDispatch } from 'react-redux'
 interface Props {
   show: boolean
   setShow: (data: boolean) => void
@@ -12,6 +15,7 @@ interface Sub {
   name: string
   description: string
 }
+
 export const Catalog: FC<Props> = ({ show, setShow, setCategory }) => {
   const [id, setId] = useState('')
   for (const property in subCategories) {
@@ -19,6 +23,9 @@ export const Catalog: FC<Props> = ({ show, setShow, setCategory }) => {
       setCategory(subCategories[property])
     }
   }
+  const dispatch = useDispatch()
+  const { data, isSuccess } = useQuery(['cat'], getcateGories)
+  isSuccess && console.log(data.data)
   return (
     <Card
       sx={{
@@ -33,11 +40,10 @@ export const Catalog: FC<Props> = ({ show, setShow, setCategory }) => {
         {catalogItems.map((item) => (
           <div
             key={item.name}
-            id={item.name}
             style={{ display: 'flex', justifyContent: 'space-between' }}
-            onMouseOver={(e) => {
+            onMouseOver={() => {
               setShow(true)
-              setId(e.currentTarget.id)
+              setId(item.name)
             }}
             onMouseOut={() => setShow(false)}
           >

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
-import { NewProducts, newProducts } from '../../consts/products'
+import { NewProducts } from '../../consts/products'
 import { LeftArrow } from './Arrows'
 import { RightArrow } from './Arrows'
 import classes from './Scroll.module.css'
@@ -26,7 +26,7 @@ export const Scroll = ({ scrollProducts }: Props) => {
       wrapperClassName={classes.wrapper}
       scrollContainerClassName={classes.scrollContainer}
     >
-      {newProducts.map((item: NewProducts, index) => (
+      {scrollProducts.map((item: NewProducts, index) => (
         <CardElement cardItem={item} key={index} />
       ))}
     </ScrollMenu>

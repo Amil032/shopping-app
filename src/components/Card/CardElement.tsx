@@ -19,8 +19,8 @@ interface Props {
 
 export const CardElement = ({ cardItem }: Props) => {
   const navigate = useNavigate()
-  const clickHandler = (e: any) => {
-    navigate(`/blog/${e.currentTarget.id}`)
+  function clickHandler(id: string) {
+    navigate(`/blog/${id}`)
   }
 
   const dispatch = useDispatch()
@@ -43,8 +43,7 @@ export const CardElement = ({ cardItem }: Props) => {
         src={cardItem.source}
         alt='Paella dish'
         sx={{ width: '45%', margin: '0 auto', objectFit: 'contain' }}
-        id={cardItem.id}
-        onClick={clickHandler}
+        onClick={clickHandler.bind(this, cardItem.id)}
       />
       <CardContent>
         <Typography variant='body2' color='text.secondary'>
