@@ -1,5 +1,4 @@
 export interface Categories {
-  products: Product[]
   categories: Category[]
 }
 
@@ -19,10 +18,11 @@ export interface Product {
 export interface Category {
   description: string
   category_id: number
-  subcatories: Subcatory[]
+  icon_source: string
+  subcatories: SubCategory[]
 }
 
-export interface Subcatory {
+export interface SubCategory {
   description: string
   subcategory_id: number
 }

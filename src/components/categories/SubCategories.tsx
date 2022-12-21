@@ -1,16 +1,14 @@
 import { Card } from '@mui/material'
 import React from 'react'
+import { SubCategory } from '../../consts/types/types'
+import classes from './Index.module.css'
 interface Props {
   show: boolean
   setShow: (data: boolean) => void
-  category: Sub[]
+  category: SubCategory[] | null
 }
-interface Sub {
-  name: string
-  description: string
-}
+
 export const SubCategories = ({ show, setShow, category }: Props) => {
-  console.log(category)
   return (
     <Card
       sx={{ height: '432px', width: '100%' }}
@@ -19,9 +17,12 @@ export const SubCategories = ({ show, setShow, category }: Props) => {
       }}
       onMouseOut={() => setShow(false)}
     >
-      {category.map((item, index) => (
-        <h3 key={index}>{item.description}</h3>
-      ))}
+      {category &&
+        Object.values(category).map((item, index) => (
+          <p className={classes.subcategory_name} key={index}>
+            {item.description}
+          </p>
+        ))}
     </Card>
   )
 }

@@ -1,5 +1,3 @@
 import { instance } from '../axios'
 
-export const getcateGories = () => {
-  return instance.get('/categories')
-}
+export const getCategories = () => instance.get('/categories')

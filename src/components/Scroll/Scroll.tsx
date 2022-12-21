@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, ReactNode } from 'react'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { NewProducts } from '../../consts/products'
 import { LeftArrow } from './Arrows'
@@ -7,16 +7,13 @@ import classes from './Scroll.module.css'
 import { CardElement } from '../Card/CardElement'
 
 interface Props {
-  scrollProducts: NewProducts[]
+  children?: ReactNode
+  header: JSX.Element
 }
-export const Scroll = ({ scrollProducts }: Props) => {
+export const Scroll: React.FunctionComponent<Props> = ({ children, header }) => {
   return (
     <ScrollMenu
-      Header={
-        <div style={{ color: 'black' }}>
-          <h1>Best selling products</h1>
-        </div>
-      }
+      Header={header}
       // Footer={<div>FOOTER</div>}
       LeftArrow={LeftArrow}
       RightArrow={RightArrow}
@@ -26,9 +23,7 @@ export const Scroll = ({ scrollProducts }: Props) => {
       wrapperClassName={classes.wrapper}
       scrollContainerClassName={classes.scrollContainer}
     >
-      {scrollProducts.map((item: NewProducts, index) => (
-        <CardElement cardItem={item} key={index} />
-      ))}
+      {children}
     </ScrollMenu>
   )
 }

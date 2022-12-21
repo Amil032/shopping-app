@@ -1,12 +1,5 @@
 {
-  "products": [
-    {
-      "product_id":1,
-      "name": "Computer",
-      "description": "Kompyuter",
-      "category_id": 7,
-      "subcategory_id": 71
-    },
+  "all-products": [
     {
       "product_id":2,
       "name": "shoes",
@@ -49,7 +42,7 @@
       "description": "Aromalasdirici Areon Fresh Wave",
       "price": "45azn",
       "credit": "ayda 0.19",
-      "source": "assests/products/product3.jpg",
+      "source": "assests/products/product4.jpg",
       "category_id": 7,
       "subcategory_id": 71,
       "category": "big",
@@ -61,7 +54,7 @@
       "description": "Aromalasdirici Areon Fresh Wave",
       "price": "45azn",
       "credit": "ayda 0.19",
-      "source": "assests/products/product1.jpg",
+      "source": "assests/products/product5.jpg",
       "category_id": 7,
       "subcategory_id": 71,
       "category": "big",
@@ -73,7 +66,7 @@
       "description": "Aromalasdirici Areon Fresh Wave",
       "price": "45azn",
       "credit": "ayda 0.19",
-      "source": "assests/products/product1.jpg",
+      "source": "assests/products/product6.jpg",
       "category_id": 7,
       "subcategory_id": 71,
       "category": "big",
@@ -85,7 +78,7 @@
       "description": "Aromalasdirici Areon Fresh Wave",
       "price": "45azn",
       "credit": "ayda 0.19",
-      "source": "assests/products/product1.jpg",
+      "source": "assests/products/product7.jpg",
       "category_id": 7,
       "subcategory_id": 71,
       "category": "big",
@@ -97,7 +90,7 @@
       "description": "Aromalasdirici Areon Fresh Wave",
       "price": "45azn",
       "credit": "ayda 0.19",
-      "source": "assests/products/product1.jpg",
+      "source": "assests/products/product8.jpg",
       "category_id": 7,
       "subcategory_id": 71,
       "category": "big",
@@ -108,6 +101,7 @@
     {
       "description": "Boyuk Məişət texnikası",
       "category_id": 1,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Soyuducu",
@@ -122,6 +116,7 @@
     {
       "description": "Xirda Meiset texnikasi",
       "category_id": 2,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Ütü",
@@ -136,6 +131,7 @@
     {
       "description": "İqlim cihazlari",
       "category_id": 3,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Kondisioner",
@@ -150,6 +146,7 @@
     {
       "description": "Telefonlar",
       "category_id": 4,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "İphone",
@@ -164,6 +161,7 @@
     {
       "description": "Ofis levazimatlari",
       "category_id": 5,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Printer",
@@ -178,6 +176,7 @@
     {
       "description": "Lampalar",
       "category_id": 6,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Masaüstü",
@@ -192,6 +191,7 @@
     {
       "description": "Digər",
       "category_id": 7,
+      "icon_source":"washing-machine.png",
       "subcatories": [
         {
           "description": "Scooter",
@@ -204,6 +204,104 @@
       ]
     }
     
+  ],
+  "new-products": [
+    {
+      "product_id":2,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product1.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":3,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product2.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":4,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product3.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":5,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product4.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":6,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product5.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":7,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product6.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":7,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product7.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    },
+    {
+      "product_id":8,
+      "name": "shoes",
+      "description": "Aromalasdirici Areon Fresh Wave",
+      "price": "45azn",
+      "credit": "ayda 0.19",
+      "source": "assests/products/product8.jpg",
+      "category_id": 7,
+      "subcategory_id": 71,
+      "category": "big",
+      "subcategory": "machine"
+    }
   ]
 }
 

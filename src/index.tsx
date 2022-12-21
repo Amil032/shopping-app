@@ -8,15 +8,17 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
 import { QueryClientProvider, QueryClient } from 'react-query'
-const queryClient = new QueryClient()
+import ScrollToTop from './utils/ScrollToTop'
+// const queryClient = new QueryClient()
 // import '../src/mock/server'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
+  // <QueryClientProvider client={queryClient}>
   <Provider store={store}>
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <ScrollToTop />
+      <App />
+    </BrowserRouter>
   </Provider>
+  // </QueryClientProvider>
 )

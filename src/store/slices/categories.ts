@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
-import { Categories } from '../../consts/types/types'
+import { Category } from '../../consts/types/types'
 interface Initialstate {
-  categories: Categories | null
+  categories: Category[] | null
 }
 const initialState: Initialstate = {
   categories: null
@@ -13,7 +13,7 @@ export const cartegoryAction = createSlice({
   initialState,
   reducers: {
     setAllCategories: (state, action) => {
-      state = action.payload
+      state.categories = action.payload
     }
   }
 })

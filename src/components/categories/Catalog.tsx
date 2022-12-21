@@ -1,31 +1,20 @@
 import { Card } from '@mui/material'
 import React, { FC, useState } from 'react'
-import { catalogItems, subCategories } from '../../consts/catalog'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import classes from './Index.module.css'
-import { useQuery } from 'react-query'
-import { getcateGories } from '../../api/services/categories.service'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { allCategories } from '../../store/slices/categories'
+import { Category, SubCategory } from '../../consts/types/types'
+
 interface Props {
   show: boolean
   setShow: (data: boolean) => void
-  setCategory: (data: Sub[]) => void
-}
-interface Sub {
-  name: string
-  description: string
+  setCategory: (data: SubCategory[] | null) => void
 }
 
-export const Catalog: FC<Props> = ({ show, setShow, setCategory }) => {
-  const [id, setId] = useState('')
-  for (const property in subCategories) {
-    if (property === id) {
-      setCategory(subCategories[property])
-    }
-  }
-  const dispatch = useDispatch()
-  const { data, isSuccess } = useQuery(['cat'], getcateGories)
-  isSuccess && console.log(data.data)
+export const Catalog: FC<Props> = ({ setShow, setCategory }) => {
+  const categories = useSelector(allCategories)
+  const [id, setId] = useState<number | null>(null)
   return (
     <Card
       sx={{
@@ -37,17 +26,21 @@ export const Catalog: FC<Props> = ({ show, setShow, setCategory }) => {
       className={classes.category}
     >
       <div>
-        {catalogItems.map((item) => (
+        {categories?.map((item: Category) => (
           <div
-            key={item.name}
-            style={{ display: 'flex', justifyContent: 'space-between' }}
+            key={item.category_id}
+            style={{ display: 'flex', justifyContent: 'space-between', padding: '5px' }}
             onMouseOver={() => {
               setShow(true)
-              setId(item.name)
+              setCategory(item.subcatories)
             }}
             onMouseOut={() => setShow(false)}
           >
-            <strong style={{ marginLeft: '20px' }}>{item.description}</strong>
+            <div className={classes.category_name}>
+              <img src={`assests/icons/${item.icon_source}`} alt='icons' width='20px' />
+              <p style={{ marginLeft: '20px' }}>{item.description}</p>
+            </div>
+
             <div>
               <ChevronRightIcon />
             </div>
